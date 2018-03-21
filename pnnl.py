@@ -67,7 +67,6 @@ def ncdump(nc_fid, verb=True):
                 print_ncattr(var)
     return nc_attrs, nc_dims, nc_vars
 
-# 
 def downsample(df, format):
     '''
     downsample function downsamples the dataframe df as per given format 
@@ -86,7 +85,7 @@ def downsample(df, format):
     '''
     return df.resample(format).mean()
 
-# Python lists to store the dataframes from CDF files
+# Python list objects to store the dataframes from CDF files
 atmos_pressure = []
 temp_mean = []
 rh_humidity = []
@@ -155,6 +154,7 @@ w_nc_fid.variables['mean_temperature'][:] = rdf['temp_mean'].as_matrix()
 
 w_nc_fid.close() # Close the new file
 
+# Try reading the new files and check if the doensampled data can be repopulated
 nc_fid = Dataset("sgpmetavgE13.b1.20180101.000000.cdf", "r", format="NETCDF4")
 nc_attrs, nc_dims, nc_vars = ncdump(nc_fid)
 print(nc_fid.variables.keys())
