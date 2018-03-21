@@ -8,3 +8,5 @@ Then navigate into the project directory using the command `cd pnnl_downsampling
 
 Once you are in the directory, run the command in the terminal
 `python pnnl.py`
+
+The output CDFNet4 file will be generated in the main project directory with the filename `sgpmetavgE13.b1.20180101.000000.cdf`.
